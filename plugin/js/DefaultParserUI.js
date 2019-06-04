@@ -11,7 +11,7 @@ class DefaultParserSiteSettings {
         let config = window.localStorage.getItem(DefaultParserSiteSettings.storageName);
         this.configs = new Map();
         if (config != null) {
-            for(let e of JSON.parse(config)) {
+            for (let e of JSON.parse(config)) {
                 let selectors = e[1];
                 if (DefaultParserSiteSettings.isConfigValid(selectors)) {
                     this.configs.set(e[0], selectors);
@@ -28,11 +28,11 @@ class DefaultParserSiteSettings {
     saveSiteConfig(hostname, contentCss, titleCss, removeCss, testUrl) {
         if (this.isConfigChanged(hostname, contentCss, titleCss, removeCss, testUrl)) {
             this.configs.set(
-                hostname, { 
-                    contentCss: contentCss, 
-                    titleCss: titleCss, 
+                hostname, {
+                    contentCss: contentCss,
+                    titleCss: titleCss,
                     removeCss: removeCss,
-                    testUrl: testUrl 
+                    testUrl: testUrl
                 }
             );
             let serialized = JSON.stringify(Array.from(this.configs.entries()));
@@ -43,9 +43,9 @@ class DefaultParserSiteSettings {
     /** @private */
     isConfigChanged(hostname, contentCss, titleCss, removeCss, testUrl) {
         let config = this.configs.get(hostname);
-        return (config === undefined) || 
+        return (config === undefined) ||
             (contentCss !== config.contentCss) ||
-            (titleCss !== config.titleCss) || 
+            (titleCss !== config.titleCss) ||
             (removeCss !== config.removeCss) ||
             (testUrl !== config.testUrl);
     }
@@ -63,14 +63,12 @@ class DefaultParserSiteSettings {
         let config = this.getConfigForSite(hostname);
         if (config != null) {
             logic.findContent = dom => dom.querySelector(config.contentCss);
-            if (!util.isNullOrEmpty(config.titleCss))
-            {
+            if (!util.isNullOrEmpty(config.titleCss)) {
                 logic.findChapterTitle = dom => dom.querySelector(config.titleCss);
             }
-            if (!util.isNullOrEmpty(config.removeCss))
-            {
-                logic.removeUnwanted = function(element) {
-                    for(let e of element.querySelectorAll(config.removeCss)) {
+            if (!util.isNullOrEmpty(config.removeCss)) {
+                logic.removeUnwanted = function (element) {
+                    for (let e of element.querySelectorAll(config.removeCss)) {
                         e.remove();
                     };
                 };
@@ -115,7 +113,7 @@ class DefaultParserUI {
 
         DefaultParserUI.getContentCssInput().value = "body";
         DefaultParserUI.getChapterTitleCssInput().value = "";
-        DefaultParserUI.getUnwantedElementsCssInput().value = "";
+        DefaultParserUI.getUnwantedElementsCssInput().value = "#docsNav,.onPageNav,.nav-footer,.fixedHeaderContainer";
         DefaultParserUI.getTestChapterUrlInput().value = "";
 
         let config = parser.siteConfigs.getConfigForSite(hostname);
@@ -141,8 +139,7 @@ class DefaultParserUI {
         DefaultParserUI.AddConfiguration(parser);
         let hostname = DefaultParserUI.getDefaultParserHostnameInput().value;
         let config = parser.siteConfigs.getConfigForSite(hostname);
-        if (util.isNullOrEmpty(config.testUrl))
-        {
+        if (util.isNullOrEmpty(config.testUrl)) {
             alert(chrome.i18n.getMessage("warningNoChapterUrl"));
             return;
         }
