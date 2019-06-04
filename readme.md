@@ -140,19 +140,19 @@ WebToEpub uses the following libraries:
 
 ### Step 1
 
-![Config 1](img_readme/img1.png?raw=true "Config 1")
+![Config 1](plugin/img_readme/img1.png?raw=true "Config 1")
 
 - click to "load and Analyse" button
 
 ### Step 2
 
-![Config 2](img_readme/img2.png?raw=true "Config 2")
+![Config 2](plugin/img_readme/img2.png?raw=true "Config 2")
 
 - click to "apply" button
 
 ### Step 3
 
-![Config 3](img_readme/img3.png?raw=true "Config 3")
+![Config 3](plugin/img_readme/img3.png?raw=true "Config 3")
 
 - you can change chapters order by clicking to "Edit Chapter URLs" button
 
