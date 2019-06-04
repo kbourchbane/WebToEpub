@@ -133,3 +133,31 @@ WebToEpub uses the following libraries:
     * WebToEpub0.0.0.x.zip   (Chrome version of plug-in.)
     * packed.js  (All JavaScript files packaged into single file, for eslint to examine.)
 * Command line for eslint is "eslint packed.js > error.txt"
+
+# for the fork case "documentation created by docusaurus"
+## How to use
+- the default project configuration is to generate a .epub from documentation created by docusaurus, but you can change configuration in the UI
+
+### Step 1
+
+![Config 1](plugin/img_readme/img1.png?raw=true "Config 1")
+
+- click to "load and Analyse" button
+
+### Step 2
+
+![Config 2](plugin/img_readme/img2.png?raw=true "Config 2")
+
+- click to "apply" button
+
+### Step 3
+
+![Config 3](plugin/img_readme/img3.png?raw=true "Config 3")
+
+- you can change chapters order by clicking to "Edit Chapter URLs" button
+
+- click to "pack EPUB" button to generate .epub file
+
+### Step 4
+
+- to convert the .epub to .pdf you can use **Calibre** https://calibre-ebook.com/
